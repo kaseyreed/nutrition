@@ -1,24 +1,29 @@
-<% if @entries.empty? %>
+<% if @entries_map.empty? %>
   <p>No entries yet.</p>
 <% else %>
 
-  <table class="table-auto w-full">
-    <thead>
-    <tr>
-      <th>Time</th>
-      <th>Date</th>
-      <th>Entry</th>
-    </tr>
-    </thead>
+  <% @entries_map.each do |date, entries| %>
+    <div>
+      <h4 class="text-xl"><%= date.to_formatted_s(:long) %></h4>
+      <table class="table-auto w-full">
+        <thead>
+        <tr>
+          <th>Time</th>
+          <th>Date</th>
+          <th>Entry</th>
+        </tr>
+        </thead>
 
-    <tbody>
-    <% @entries.each do |entry| %>
-      <tr>
-        <td><%= entry.consumed_at.strftime("%I:%M%p") %></td>
-        <td><%= entry.consumed_at.iso8601.slice(0, 10) %></td>
-        <td><%= entry.entry %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+        <tbody>
+        <% entries.each do |entry| %>
+          <tr>
+            <td><%= entry.consumed_at.in_time_zone("US/Central").strftime("%I:%M %p") %></td>
+            <td><%= entry.consumed_at.in_time_zone("US/Central").iso8601.slice(0, 10) %></td>
+            <td><%= entry.entry %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
 <% end %>
