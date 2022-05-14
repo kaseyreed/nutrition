@@ -1,0 +1,42 @@
+<form action="/nutrition/create" method="post">
+
+  <div class="flex flex-row space-x-6">
+    <div class="">
+      <input
+        name="time"
+        type="time"
+        class="rounded"
+        value="<%= Time.current.hour %>:<%= Time.current.min %>"
+        />
+    </div>
+
+    <div class="">
+      <input
+        name="date"
+        value="<%= Time.current.iso8601.slice(0, 10) %>"
+        type="date"
+        class="rounded"
+        required
+        />
+    </div>
+
+    <div class="grow">
+      <input
+        class="w-full rounded"
+        name="entry"
+        type="text"
+        placeholder="What did you eat?"
+        required
+        />
+    </div>
+
+    <div class="">
+      <button
+        type="submit"
+        class="w-44 btn-primary"
+      >Add
+      </button>
+    </div>
+
+  </div>
+</form>

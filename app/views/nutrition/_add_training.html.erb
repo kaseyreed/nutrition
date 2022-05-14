@@ -1,0 +1,28 @@
+<form action="/trainings/create" method="post">
+  <div class="flex flex-row space-x-6">
+    <div class="">
+      <select name="when" class="rounded">
+        <option value="before">Before Training</option>
+        <option value="during">During Training</option>
+        <option value="after">After Training</option>
+      </select>
+    </div>
+
+    <div class="grow">
+      <input
+        name="feeling"
+        class="rounded w-full"
+        type="text"
+        placeholder="How did you feel at this time?"
+        />
+    </div>
+
+    <div class="">
+      <button
+        type="submit"
+        class="w-44 btn-primary"
+      >Add
+      </button>
+    </div>
+  </div>
+</form>

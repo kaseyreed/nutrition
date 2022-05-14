@@ -1,0 +1,23 @@
+<% if @training_entries.empty? %>
+  <p>No entries yet.</p>
+<% else %>
+
+  <table class="table-auto w-full">
+    <thead>
+    <tr>
+      <th>When</th>
+      <th>Feeling</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @training_entries.each do |entry| %>
+      <tr>
+        <td><%= entry.when %></td>
+        <td><%= entry.feeling %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

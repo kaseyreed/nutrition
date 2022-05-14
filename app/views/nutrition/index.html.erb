@@ -1,0 +1,32 @@
+<div data-controller="home">
+  <h1 class="text-3xl font-bold">
+    Nutrition
+  </h1>
+
+  <h3 class="text-2xl mb-3">
+    Record what you eat. We'll keep track of the rest.
+  </h3>
+
+  <%= render 'add_nutrition' %>
+
+  <h3 class="text-2xl mb-3 mt-4">
+    Record how you feel before, during, and after training.
+  </h3>
+
+  <%= render 'add_training' %>
+
+
+  <div class="mt-4">
+    <h2 class="text-2xl">Nutrition Entries</h2>
+
+    <%= render 'entries' %>
+  </div>
+
+  <div class="mt-4">
+    <h2 class="text-2xl">Training Entries</h2>
+
+    <%= render 'training_entries' %>
+  </div>
+
+
+</div>
