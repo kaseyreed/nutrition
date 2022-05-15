@@ -1,6 +1,6 @@
 <form action="/trainings/create" method="post">
-  <div class="flex flex-row space-x-6">
-    <div class="">
+  <div class="flex flex-row flex-wrap">
+    <div class="pt-2 pr-1">
       <select name="when" class="rounded">
         <option value="before">Before Training</option>
         <option value="during">During Training</option>
@@ -8,7 +8,7 @@
       </select>
     </div>
 
-    <div class="grow">
+    <div class="grow pt-2 pr-1">
       <input
         name="feeling"
         class="rounded w-full"
@@ -17,7 +17,7 @@
         />
     </div>
 
-    <div class="">
+    <div class="pt-2">
       <button
         type="submit"
         class="w-44 btn-primary"

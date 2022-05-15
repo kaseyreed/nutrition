@@ -12,4 +12,26 @@ class NutritionController < ApplicationController
 
     redirect_to action: 'index'
   end
+
+  def search
+    query = params[:query].strip
+
+    if query.length < 3
+      return []
+    end
+
+    result = NutritionEntry.where('LOWER(entry) LIKE LOWER(?)', "%#{query}%")
+                  .select(:entry)
+                  .order(entry: :asc)
+                  .distinct
+                  .map(&:entry)
+
+    respond_to do |format|
+      format.json do
+        render json: {
+          results: result
+        }.to_json
+      end
+    end
+  end
 end

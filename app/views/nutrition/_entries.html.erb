@@ -3,20 +3,16 @@
 <% else %>
 
   <% @entries_map.each do |date, entries| %>
-    <div>
-      <h4 class="text-xl"><%= date.to_formatted_s(:long) %></h4>
-      <table class="table-auto w-full">
-        <thead>
-        <tr>
-          <th>Time</th>
-          <th>Entry</th>
-        </tr>
-        </thead>
+    <div class="my-2 border-2 rounded bg-slate-50">
+      <div class="border-b-2">
+        <h4 class="text-xl py-2 px-2"><%= date.to_formatted_s(:long) %></h4>
+      </div>
 
-        <tbody>
+      <table class="table-fixed w-full">
+
         <% entries.each do |entry| %>
-          <tr>
-            <td><%= entry.consumed_at.in_time_zone("US/Central").strftime("%I:%M %p") %></td>
+          <tr >
+            <td class="w-28 py-1 px-2"><%= entry.consumed_at.in_time_zone("US/Central").strftime("%I:%M %p") %></td>
             <td><%= entry.entry %></td>
           </tr>
         <% end %>
